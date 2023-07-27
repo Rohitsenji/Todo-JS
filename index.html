@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App Js</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="blur">
+      <nav class="navbar">
+        <div class="nav1">
+          <span class="tasks">Tasks</span><span class="lists">Lists</span>
+        </div>
+        <div class="nav2">
+          <span class="plus">+</span><span class="additems">Add Items</span>
+        </div>
+      </nav>
+      <div class="cardcontainer" id="cardcontainer">
+        <p class="notask">No task added yet</p>
+      </div>
+    </div>
+
+    <!-- pop up card making -->
+    <div id="popupbox" class="popupbox hide">
+      <h2>Add New Tasks</h2>
+      <br />
+      <input
+        type="text"
+        id="cardname"
+        class="input1"
+        placeholder="add new lists"
+        value=""
+      /><br /><br />
+      <span onclick="addcard()" id="cardbuttonadd" class="cardbuttons"
+        >Add</span
+      >
+      <span onclick="hideAddTask()" class="cardbuttons">Close</span>
+    </div>
+    <div id="popupbox2" class="popupbox2 hide">
+      <h2>Add new item</h2>
+      <br />
+      <input
+        type="text"
+        id="input2"
+        class="input2"
+        placeholder="Add new item"
+        value=""
+      /><br /><br />
+      <span onclick="addcard2()" id="additems2" class="cardbuttons">Add</span>
+      <span onclick="hideAdditem()" id="closebutton2" class="cardbuttons"
+        >Close</span
+      >
+    </div>
+    
+
+    <script src="./script.js"></script>
+  </body>
+</html>
