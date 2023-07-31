@@ -79,6 +79,7 @@ body{
 .cardbuttons{
     box-sizing: border-box;
     display: inline-block;
+    /* width: 45%; */
     width: 90px;
     height: 50px;
     padding: 10px;
@@ -125,6 +126,11 @@ body{
     cursor: pointer;
     color: rgb(238, 131, 43);
 }
+#listingid{
+    color: rgb(238, 131, 43);
+    /* cursor: pointer; */
+    padding-left: 20px;
+}
 
 .horizontal-line{
     width: 170px;
@@ -148,13 +154,8 @@ body{
 
 /* adding items in card (popup) */
 
-.show2{
-    display: block;
-}
-.hide2{
-    display: none;
-}
-.popupbox2{
+
+/* .popupbox2{
     position: fixed;
     top: 35vh;
     left: 35vw;
@@ -178,4 +179,128 @@ body{
     border-radius: 5px;
     height: 30px;
     margin-left: 40px;
-}
+} */
+/* ................................................... */
+.popup2blur{
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0vw;
+    left: 0vw;
+    background-color: rgba(255, 255, 255, 0.089);
+  }
+  
+  .popup2Div{
+    backdrop-filter: blur(10px);
+    text-align: center;
+    width: 45%;
+    padding: 5px; 
+    position: fixed;
+    background-color: rgb(5, 168, 168);
+    left: 30%;
+    top: 30%;
+    box-shadow: 0px 10px 20px rgb(0, 0, 0);
+    border:1px solid white;
+    border-radius: 5px;
+  }
+  
+  
+  .popup2Title {
+    text-align: center;
+    color: black;
+    font-size: 3.4vw;
+  }
+  
+  .secondPopupImg{
+    width: 40%;
+  }
+  
+  .popup2Input {
+    width: 90%;
+    padding:5px;
+    font-size: 2vw;
+    outline:none;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  .popup2Input:focus{
+    border:2px solid var(--orange);
+  }
+  
+  .popup2ButtonDiv {
+    display: flex;
+    margin: 10px auto;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .popup2AddButton {
+    cursor: pointer;
+    width: 45%;
+    border: 1px solid var(--orange);
+    padding: 8px 0px;
+    background: var(--orange);
+    transition: all 0.3s ease-in-out;
+    color: var(--text);
+  }
+  
+  .popup2AddButton:hover{
+    background-color: transparent;
+    color: var(--orange);
+  }
+  
+  .popup2DeleteButton {
+    cursor: pointer;
+    width: 45%;
+    border: 1px solid var(--darkRed);
+    padding: 8px 0px;
+    background: var(--darkRed);
+    transition: all 0.1s linear;
+    color: var(--text);
+  }
+  
+  .popup2DeleteButton:hover{
+    background-color: transparent;
+    color: var(--lightRed);
+    border-color: var(--lightRed);
+  }
+  
+  .innerDivText{
+    background-color: aqua;
+    border: 1px solid white;
+  }
+  
+  .addTaskListItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* font-size: 3vw; */
+    padding: 0.5vw;
+    /* background: rgba(241, 150, 47, 0.073); */
+    border: 1px solid white; 
+    border-right: none;
+    border-left: none;
+    padding: 0.5vw 0px; 
+    margin: 1vh auto;
+    color: var(--text);
+  }
+  
+  .joaddhua{
+    /* border: 1px solid red;  */
+    width: 70%;
+    padding: 0.5vw 0px; 
+    margin: 0px auto; 
+    font-size: 1.5rem;
+  }
+  
+  .itemhatao{
+    cursor: pointer;
+    font-weight: 900;
+    padding: 0.5vw 0px; 
+    width: 30%; 
+    color: rgb(41, 40, 40);
+   
+  
+  }
