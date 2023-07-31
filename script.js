@@ -2,7 +2,6 @@ let addtaskpopup = document.getElementById("popupbox");
 const cardcontainer = document.querySelector(".cardcontainer");
 const newcardname = document.getElementById("cardname");
 let ID = 0;
-let additempopup = document.querySelector(".popupbox2");
 let addinglist= document.getElementById("additems2")
 const blurdiv = document.querySelector(".blur")
 // creating popup
@@ -18,10 +17,8 @@ eventplus.addEventListener("click", function showAddTask() {
   document.getElementById("cardname").value = "";
   addtaskpopup.classList.remove("hide");
   addtaskpopup.classList.add("show");
-  blurdiv.style.filter = 'blur(5px)';
+  // blurdiv.style.filter = 'blur(5px)';
 });
-
-
 
 
 // addtaskpopup.addEventListener("click",showAddTask)
@@ -30,18 +27,14 @@ eventadditems.addEventListener("click", function showAddTask() {
   document.getElementById("cardname").value = "";
   addtaskpopup.classList.remove("hide");
   addtaskpopup.classList.add("show");
-  blurdiv.style.filter = 'blur(5px)';
+  // blurdiv.style.filter = 'blur(5px)';
 });
 
 function hideAddTask() {
   addtaskpopup.classList.add("hide");
   blurdiv.style.filter = 'blur(0px)';
 }
-// card container
 
-// adding of card
-
-// let del = document.querySelector(".")
 
 function addcard() {
   ID++;
@@ -64,10 +57,17 @@ function addcard() {
   // styling of card
   hline.classList.add("horizontal-line");
   cardtitle.classList.add("center");
-  itemlist.classList.add("center");
+
+
+  // itemlist.classList.add("center");
+  itemlist.setAttribute("id","listingid")
   itemlist.classList.add("listing");
+
+
   deletebutton.classList.add("center");
   deletebutton.classList.add("del-image");
+
+
   additem.classList.add("center");
   additem.classList.add("add-icon");
   // adding class to new card
@@ -79,35 +79,134 @@ function addcard() {
   deletebutton.innerText = "";
   additem.innerText = "+";
 
-  deletebutton.addEventListener("click", function () {
+
+
+    //  removing of new card 
+    deletebutton.addEventListener("click", function () {
     newcard.remove();
-  });
+    
+    });
 
-  // removing of popup when card is made
-  hideAddTask();
+    // removing of popup when card is made
+    hideAddTask();
 
-// showing of popup box 2
-let additemnew = document.querySelector(".add-icon");
-additemnew.addEventListener("click", function additem() {
-  additempopup.classList.remove("hide");
-  // addtaskpopup.classList.add("show");
+    // showing of popup box 2 when clicked on plus symbol
+    let addnewitem = document.querySelector(".add-icon");
+    addnewitem.addEventListener("click", ()=>{
+
+    var popup2Blur = document.createElement('div')
+    popup2Blur.setAttribute("class","popup2blur")
+    var mainContainer = document.getElementById('maincontainerid');
+    mainContainer.appendChild(popup2Blur)
+
+    // popup2Container
+    var popup2Div = document.createElement('div')
+    popup2Div.setAttribute('class',"popup2Div")
+    popup2Blur.appendChild(popup2Div)
+
+    // popup2Title
+    var popup2Title = document.createElement('h2')
+    popup2Title.setAttribute('class',"popup2Title")
+    popup2Title.innerText = "Add New Task";
+    popup2Div.appendChild(popup2Title)
+
+    // popup2Input 
+    var popup2Input  = document.createElement('input')
+    popup2Input.setAttribute('class',"popup2Input")
+    popup2Input.setAttribute('id','$popup2Input')
+    popup2Div.appendChild(popup2Input)
+
+
+    // popup2ButtonDiv
+    var popup2ButtonDiv = document.createElement('div')
+    popup2ButtonDiv.setAttribute('class','popup2ButtonDiv')
+    popup2Div.appendChild(popup2ButtonDiv)
+
+
+        // popup2AddButton
+    var popup2DeleteButton = document.createElement('div')
+    popup2DeleteButton.setAttribute('class','popup2DeleteButton')
+    popup2DeleteButton.innerText = "Delete Item";
+    popup2ButtonDiv.appendChild(popup2DeleteButton)
+
+    popup2DeleteButton.addEventListener('click', ()=>{
+      popup2Div.remove();
+      popup2Blur.remove();
+    })
+
+    // popup2AddButton
+    var popup2AddButton = document.createElement('div')
+    popup2AddButton.setAttribute('class',"popup2AddButton")
+    popup2AddButton.innerText = "Add Item"
+    popup2ButtonDiv.appendChild(popup2AddButton)
+
+    popup2AddButton.addEventListener('click', function () {
+      var addTaskListItem = document.createElement("div");
+      addTaskListItem.setAttribute("class", "addTaskListItem");
+      var input2 = document.getElementById("$popup2Input");   
+
+      var joaddhua = document.createElement('p')
+      joaddhua.setAttribute('class',"joaddhua")
+      joaddhua.innerHTML = input2.value;
+      addTaskListItem.appendChild(joaddhua);
+
+      var itemhatao = document.createElement('p')
+      itemhatao.setAttribute('class',"itemhatao")
+      itemhatao.innerHTML = 'Done'
+      addTaskListItem.appendChild(itemhatao);
+
+      itemhatao.addEventListener('click',function(){
+        // let text=input2.value;
+        // let result = text.strike();
+        // input2.value.innerHTML= result;
+        addTaskListItem.remove();
+      })
+      itemlist
+      .appendChild(addTaskListItem);
+      popup2Div.remove();
+      popup2Blur.remove();
+    })
+    
 });
 
-// adding values in item list
+backButton.addEventListener("click", () => {
+  showCardBack();
+});
 
+function showCardBack() {
+  showCard.classList.add("hide");
+  cardBody.classList.add("cardBody");
+  cardBody.classList.remove("cardBody2");
+  cardContainer.appendChild(cardBody);
+}
+
+showCardAdd.addEventListener('click',()=>{
+  showCardAddMain()
+})
+
+function showCardAddMain(){
+  blur.classList.remove("hide");
+  popup1.classList.remove("hide");
+  popup1.classList.add("show");
+
+  showCard.classList.add("hide");
+  cardBody.classList.add("cardBody");
+  cardBody.classList.remove("cardBody2");
+  cardContainer.appendChild(cardBody);
+}
 
   }
 
-// itemadd.addEventListener("click",function addingitems(){
+  function newTaskClose() {
+    var blur = document.getElementById("$blurBackground");
+    blur.classList.add("hide");
   
-//   let input2value= document.querySelector(".input2").value;
-//   let itemin= document.createElement("p");
-//   itemin.setAttribute("id",ID2
-//   itemlist.appendChild(itemin)
-//   )
+    var popup1 = document.getElementById("popup");
+    popup1.classList.remove("show");
+    popup1.classList.add("hide");
+  }
 
-// })
-
+  
 // closing of second popupbox
 // let closebutton = document.getElementById("closebutton2");
  function hideAdditem() {
@@ -116,10 +215,6 @@ additemnew.addEventListener("click", function additem() {
 
 //....................second card ...................
 
-function addcard2(){
-  let newcardcontainer=document.createElement("div")
-
-}
 
 // moving to next page
 
