@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App Js</title>
     <link rel="stylesheet" href="./style.css" />
+    
   </head>
   <body>
-    <div class="blur">
+
+    <div class="blurBackground hide" id="$blurBackground"> </div>
+    <div class="maincontainer" id="maincontainerid">
+      <div class="blur">
       <nav class="navbar">
         <div class="nav1">
           <span class="tasks">Tasks</span><span class="lists">Lists</span>
@@ -19,8 +23,16 @@
       <div class="cardcontainer" id="cardcontainer">
         <p class="notask">No task added yet</p>
       </div>
-    </div>
-
+    
+      <div class="showCard hide" id="$showCard">
+        <div class="showcardInnerDiv" id="$showcardInnerDiv">
+          <div class="back" id="$back"> 
+            <!-- <img src="./assets/previous.png" alt="" class="backImg"> -->
+            BACK
+          </div>
+          <div class="showCardAdd" id="$showCardAdd"> + ADD</div>
+        </div>
+      </div>
     <!-- pop up card making -->
     <div id="popupbox" class="popupbox hide">
       <h2>Add New Tasks</h2>
@@ -32,28 +44,15 @@
         placeholder="add new lists"
         value=""
       /><br /><br />
-      <span onclick="addcard()" id="cardbuttonadd" class="cardbuttons"
-        >Add</span
+      <span onclick="addcard()" id="cardbuttonadd" class="cardbuttons">Add</span
       >
       <span onclick="hideAddTask()" class="cardbuttons">Close</span>
     </div>
-    <div id="popupbox2" class="popupbox2 hide">
-      <h2>Add new item</h2>
-      <br />
-      <input
-        type="text"
-        id="input2"
-        class="input2"
-        placeholder="Add new item"
-        value=""
-      /><br /><br />
-      <span onclick="addcard2()" id="additems2" class="cardbuttons">Add</span>
-      <span onclick="hideAdditem()" id="closebutton2" class="cardbuttons"
-        >Close</span
-      >
-    </div>
+  </div>
     
-
+  </div>
+    
+    <script src="https://kit.fontawesome.com/078812abb6.js" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
   </body>
 </html>
