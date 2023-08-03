@@ -10,6 +10,14 @@
   <body>
 
     <div class="blurBackground hide" id="$blurBackground"> </div>
+    <div class="showCard hide" id="$showCard">
+      <div class="showcardInnerDiv" id="$showcardInnerDiv">
+        <div class="back" id="$back"> 
+          BACK
+        </div>
+        <div class="showCardAdd" id="$showCardAdd"> + ADD</div>
+      </div>
+    </div>
     <div class="maincontainer" id="maincontainerid">
       <div class="blur">
       <nav class="navbar">
@@ -24,15 +32,7 @@
         <p class="notask">No task added yet</p>
       </div>
     
-      <div class="showCard hide" id="$showCard">
-        <div class="showcardInnerDiv" id="$showcardInnerDiv">
-          <div class="back" id="$back"> 
-            <!-- <img src="./assets/previous.png" alt="" class="backImg"> -->
-            BACK
-          </div>
-          <div class="showCardAdd" id="$showCardAdd"> + ADD</div>
-        </div>
-      </div>
+      
     <!-- pop up card making -->
     <div id="popupbox" class="popupbox hide">
       <h2>Add New Tasks</h2>
@@ -44,12 +44,11 @@
         placeholder="add new lists"
         value=""
       /><br /><br />
-      <span onclick="addcard()" id="cardbuttonadd" class="cardbuttons">Add</span
-      >
+      <span onclick="addcard()" id="cardbuttonadd" class="cardbuttons">Add</span>
       <span onclick="hideAddTask()" class="cardbuttons">Close</span>
     </div>
-  </div>
-    
+    </div>
+    <div class="cardContainer2" id="$cardContainer2"></div>
   </div>
     
     <script src="https://kit.fontawesome.com/078812abb6.js" crossorigin="anonymous"></script>
