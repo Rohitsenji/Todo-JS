@@ -2,12 +2,16 @@ let addtaskpopup = document.getElementById("popupbox");
 const cardcontainer = document.querySelector(".cardcontainer");
 const newcardname = document.getElementById("cardname");
 let ID = 0;
-let addinglist= document.getElementById("additems2")
-const blurdiv = document.querySelector(".blur")
+var addinglist= document.getElementById("additems2")
+var backButton = document.getElementById("$back");
+var showCard = document.getElementById("$showCard");
+var cardContainer2 = document.getElementById("$cardContainer2"); 
+var showCardAdd = document.getElementById('$showCardAdd');
+var popup1 = document.getElementById("popup");
+var blur = document.getElementById("$blurBackground");
+// const blurdiv = document.querySelector(".blur")
+
 // creating popup
-
-
-
 let eventplus = document.querySelector(".plus");
 let blurpage = document.querySelector(".blur")
 
@@ -32,7 +36,7 @@ eventadditems.addEventListener("click", function showAddTask() {
 
 function hideAddTask() {
   addtaskpopup.classList.add("hide");
-  blurdiv.style.filter = 'blur(0px)';
+  // blurdiv.style.filter = 'blur(0px)';
 }
 
 
@@ -70,10 +74,16 @@ function addcard() {
 
   additem.classList.add("center");
   additem.classList.add("add-icon");
+
+
   // adding class to new card
   newcard.classList.add("card");
+
+
   // adding card to container
   cardcontainer.appendChild(newcard);
+
+
   // giving title to the card
   cardtitle.innerText = newcardname.value;
   deletebutton.innerText = "";
@@ -90,8 +100,11 @@ function addcard() {
     // removing of popup when card is made
     hideAddTask();
 
+
+
     // showing of popup box 2 when clicked on plus symbol
     let addnewitem = document.querySelector(".add-icon");
+
     addnewitem.addEventListener("click", ()=>{
 
     var popup2Blur = document.createElement('div')
@@ -99,12 +112,12 @@ function addcard() {
     var mainContainer = document.getElementById('maincontainerid');
     mainContainer.appendChild(popup2Blur)
 
-    // popup2Container
+    //creating popup2Container jo pop up ko  rakhega
     var popup2Div = document.createElement('div')
     popup2Div.setAttribute('class',"popup2Div")
     popup2Blur.appendChild(popup2Div)
 
-    // popup2Title
+    // creating popup2Title jo title hoga popup ka
     var popup2Title = document.createElement('h2')
     popup2Title.setAttribute('class',"popup2Title")
     popup2Title.innerText = "Add New Task";
@@ -123,7 +136,7 @@ function addcard() {
     popup2Div.appendChild(popup2ButtonDiv)
 
 
-        // popup2AddButton
+    // popup2AddButton
     var popup2DeleteButton = document.createElement('div')
     popup2DeleteButton.setAttribute('class','popup2DeleteButton')
     popup2DeleteButton.innerText = "Delete Item";
@@ -169,6 +182,13 @@ function addcard() {
     
 });
 
+cardtitle.addEventListener("click", () => {
+  showCard.classList.remove("hide");
+  newcard.classList.add("cardBody2");
+  newcard.classList.remove("cardBody");
+  showCard.appendChild(newcard);
+});
+
 backButton.addEventListener("click", () => {
   showCardBack();
 });
@@ -177,7 +197,7 @@ function showCardBack() {
   showCard.classList.add("hide");
   cardBody.classList.add("cardBody");
   cardBody.classList.remove("cardBody2");
-  cardContainer.appendChild(cardBody);
+  cardContainer2.appendChild(newcard);
 }
 
 showCardAdd.addEventListener('click',()=>{
@@ -192,10 +212,10 @@ function showCardAddMain(){
   showCard.classList.add("hide");
   cardBody.classList.add("cardBody");
   cardBody.classList.remove("cardBody2");
-  cardContainer.appendChild(cardBody);
+  cardContainer2.appendChild(newcard);
 }
 
-  }
+}
 
   function newTaskClose() {
     var blur = document.getElementById("$blurBackground");
@@ -213,9 +233,3 @@ function showCardAddMain(){
   additempopup.classList.add("hide");
 }
 
-//....................second card ...................
-
-
-// moving to next page
-
-let cardclick = document.getelement
