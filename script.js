@@ -1,190 +1,242 @@
-var popup2 = document.getElementById("$secondPopup");
-var blur = document.getElementById("$blurBackground");
-var logo = document.getElementsByClassName("logo")[0];
+let addtaskpopup = document.getElementById("popupbox");
+let cardcontainer = document.querySelector(".cardcontainer");
+let newcardname = document.getElementById("cardname");
+var ID = 0;
+var addinglist= document.getElementById("additems2")
 var backButton = document.getElementById("$back");
 var showCard = document.getElementById("$showCard");
-var cardContainer = document.getElementById("$cardContainer"); 
+var cardContainer2 = document.getElementById("$cardContainer2"); 
 var showCardAdd = document.getElementById('$showCardAdd');
-var popup1 = document.getElementById("popup");
+// var popup1 = document.getElementById("popupbox");
 var blur = document.getElementById("$blurBackground");
+// const blurdiv = document.querySelector(".blur")
+
+// creating popup
+let eventplus = document.querySelector(".plus");
+let blurpage = document.querySelector(".blur")
 
 
-// add Item Button
-function addItemButton() {
-  blur.classList.remove("hide");
+
+eventplus.addEventListener("click", function showAddTask() {
+  document.getElementById("cardname").value = "";
+  addtaskpopup.classList.remove("hide");
+  addtaskpopup.classList.add("show");
+  // blurdiv.style.filter = 'blur(5px)';
+});
 
 
-  popup1.classList.remove("hide");
-  popup1.classList.add("show");
+// addtaskpopup.addEventListener("click",showAddTask)
+let eventadditems = document.querySelector(".additems");
+eventadditems.addEventListener("click", function showAddTask() {
+  document.getElementById("cardname").value = "";
+  addtaskpopup.classList.remove("hide");
+  addtaskpopup.classList.add("show");
+  // blurdiv.style.filter = 'blur(5px)';
+});
+
+function hideAddTask() {
+  addtaskpopup.classList.add("hide");
+  // blurdiv.style.filter = 'blur(0px)';
 }
 
-function newTaskAdd() {
-  var blur = document.getElementById("$blurBackground");
-  blur.classList.add("hide");
+// when (add) is clicked this function will run
 
-  var popup1 = document.getElementById("popup");
-  popup1.classList.remove("show");
-  popup1.classList.add("hide");
+function addcard() {
+  ID++;
+  let hidenotask=document.querySelector(".notask");
+  hidenotask.classList.add("hide");
+  var newcard = document.createElement("div");
+  var cardtitle = document.createElement("h2");
+  var hline = document.createElement("hr");
+  var itemlist = document.createElement("div");
+  var additem = document.createElement("span");
+  var deletebutton = document.createElement("span");
 
-  var cardBody = document.createElement("div");
-  cardBody.setAttribute("class", "cardBody");
-  cardBody.setAttribute("id", "$cardBody");
-  cardContainer.appendChild(cardBody);
+  // newcard.setAttribute("id", ID);....................................
+  newcard.appendChild(cardtitle);
+  newcard.appendChild(hline);
+  newcard.appendChild(itemlist);
+  newcard.appendChild(additem);
+  newcard.appendChild(deletebutton);
 
-  var cardHeading = document.getElementById("$input").value;
+  // styling of card
+  hline.classList.add("horizontal-line");
+  cardtitle.classList.add("center");
 
-  if (cardHeading === "" || cardHeading === " ") {
-    alert("Please Enter Task");
-    cardBody.classList.add("hide");
-  }
 
-  var cardTitle = document.createElement("h2");
-  cardTitle.setAttribute("class", "cardTitle");
-  cardTitle.innerHTML = cardHeading;
-  cardBody.appendChild(cardTitle);
+  // itemlist.classList.add("center");
+  itemlist.setAttribute("id","listingid")
+  itemlist.classList.add("listing");
 
-  cardTitle.addEventListener("click", () => {
-    showCard.classList.remove("hide");
-    cardBody.classList.add("cardBody2");
-    cardBody.classList.remove("cardBody");
-    showCard.appendChild(cardBody);
-  });
 
-  var innerDiv = document.createElement("div");
-  innerDiv.setAttribute("class", "cardInnerDiv");
-  cardBody.appendChild(innerDiv);
+  deletebutton.classList.add("center");
+  deletebutton.classList.add("del-image");
 
-  var cardButtonDiv = document.createElement("div");
-  cardButtonDiv.setAttribute("class", "cardDuttonDiv");
-  cardBody.appendChild(cardButtonDiv);
 
-  var cardDeleteButton = document.createElement("div");
-  cardDeleteButton.setAttribute("class", "cardDeleteButton");
-  cardDeleteButton.setAttribute("id", "$cardDeleteButton");
-  cardDeleteButton.innerText = "Delete Task";
-  cardButtonDiv.appendChild(cardDeleteButton);
+  additem.classList.add("center");
+  additem.classList.add("add-icon");
 
-  cardDeleteButton.addEventListener("click", () => {
-    cardDeleteButton.parentNode.parentNode.setAttribute("class", "hide");
-    var showCard = document.getElementById("$showCard");
-    showCard.classList.add("hide");
-  });
 
-  var cardAddButton = document.createElement("div");
-  cardAddButton.setAttribute("class", "cardAddButton");
-  cardAddButton.setAttribute("id", "$cardAddButton");
-  cardAddButton.innerText = "Add Item";
-  cardButtonDiv.appendChild(cardAddButton);
+  // adding class to new card
+  newcard.classList.add("card");
 
-  cardAddButton.addEventListener("click", () => {
-    // popup2Blur
-    var popup2Blur = document.createElement("div");
-    popup2Blur.setAttribute("class", "popup2blur");
-    var mainContainer = document.getElementById("$maincontainer");
-    mainContainer.appendChild(popup2Blur);
 
-    // popup2Container
-    var popup2Div = document.createElement("div");
-    popup2Div.setAttribute("class", "popup2Div");
-    popup2Blur.appendChild(popup2Div);
+  // adding card to container
+  cardcontainer.appendChild(newcard);
 
-    // popup2Title
-    var popup2Title = document.createElement("h2");
-    popup2Title.setAttribute("class", "popup2Title");
+
+  // giving title to the card
+  cardtitle.innerText = newcardname.value;
+  deletebutton.innerText = "";
+  additem.innerText = "+";
+
+
+
+    //  removing of new card 
+    deletebutton.addEventListener("click", function () {
+    newcard.remove();
+    // ID = ID-1;..............................................................
+    
+    });
+
+    // removing of popup when card is made
+    hideAddTask();
+
+
+
+    // showing of popup box 2 when clicked on plus symbol
+    let addnewitem = document.querySelector(".add-icon");
+
+    addnewitem.addEventListener("click", ()=>{
+
+    // showCard.classList.add("hide")
+    var popup2Blur = document.createElement('div')
+    popup2Blur.setAttribute("class","popup2blur")
+    var mainContainer = document.getElementById('maincontainerid');
+    mainContainer.appendChild(popup2Blur)
+
+    //creating popup2Container jo pop up ko  rakhega
+    var popup2Div = document.createElement('div')
+    popup2Div.setAttribute('class',"popup2Div")
+    popup2Blur.appendChild(popup2Div)
+
+    // creating popup2Title jo title hoga popup ka
+    var popup2Title = document.createElement('h2')
+    popup2Title.setAttribute('class',"popup2Title")
     popup2Title.innerText = "Add New Task";
-    popup2Div.appendChild(popup2Title);
+    popup2Div.appendChild(popup2Title)
 
-    // secondPopupImg
-    var secondPopupImg = document.createElement("img");
-    secondPopupImg.setAttribute("class", "secondPopupImg");
-    // secondPopupImg.src = "./assets/avengers-40995.png";
-    popup2Div.appendChild(secondPopupImg);
+    // popup2Input 
+    var popup2Input  = document.createElement('input')
+    popup2Input.setAttribute('class',"popup2Input")
+    popup2Input.setAttribute('id','$popup2Input')
+    popup2Div.appendChild(popup2Input)
 
-    // popup2Input
-    var popup2Input = document.createElement("input");
-    popup2Input.setAttribute("class", "popup2Input");
-    popup2Input.setAttribute("id", "$popup2Input");
-    popup2Div.appendChild(popup2Input);
 
     // popup2ButtonDiv
-    var popup2ButtonDiv = document.createElement("div");
-    popup2ButtonDiv.setAttribute("class", "popup2ButtonDiv");
-    popup2Div.appendChild(popup2ButtonDiv);
+    var popup2ButtonDiv = document.createElement('div')
+    popup2ButtonDiv.setAttribute('class','popup2ButtonDiv')
+    popup2Div.appendChild(popup2ButtonDiv)
+
 
     // popup2AddButton
-    var popup2DeleteButton = document.createElement("div");
-    popup2DeleteButton.setAttribute("class", "popup2DeleteButton");
+    var popup2DeleteButton = document.createElement('div')
+    popup2DeleteButton.setAttribute('class','popup2DeleteButton')
     popup2DeleteButton.innerText = "Delete Item";
-    popup2ButtonDiv.appendChild(popup2DeleteButton);
+    popup2ButtonDiv.appendChild(popup2DeleteButton)
 
-    popup2DeleteButton.addEventListener("click", () => {
+    popup2DeleteButton.addEventListener('click', ()=>{
       popup2Div.remove();
       popup2Blur.remove();
-    });
+    })
 
     // popup2AddButton
-    var popup2AddButton = document.createElement("div");
-    popup2AddButton.setAttribute("class", "popup2AddButton");
-    popup2AddButton.innerText = "Add Item";
-    popup2ButtonDiv.appendChild(popup2AddButton);
+    var popup2AddButton = document.createElement('div')
+    popup2AddButton.setAttribute('class',"popup2AddButton")
+    popup2AddButton.innerText = "Add Item"
+    popup2ButtonDiv.appendChild(popup2AddButton)
 
-    popup2AddButton.addEventListener("click", function () {
+    popup2AddButton.addEventListener('click', function () {
+      // showCard.classList.add("show")
       var addTaskListItem = document.createElement("div");
       addTaskListItem.setAttribute("class", "addTaskListItem");
-      var input2 = document.getElementById("$popup2Input");
+      var input2 = document.getElementById("$popup2Input");   
 
-      var TaskListp = document.createElement("p");
-      TaskListp.setAttribute("class", "TaskListp");
-      TaskListp.innerHTML = input2.value;
-      addTaskListItem.appendChild(TaskListp);
+      var joaddhua = document.createElement('p')
+      joaddhua.setAttribute('class',"joaddhua")
+      joaddhua.innerHTML = input2.value;
+      addTaskListItem.appendChild(joaddhua);
 
-      var TaskListpCancel = document.createElement("p");
-      TaskListpCancel.setAttribute("class", "TaskListpCancel");
-      TaskListpCancel.innerHTML = 'Done';
-      addTaskListItem.appendChild(TaskListpCancel);
+      var itemhatao = document.createElement('p')
+      itemhatao.setAttribute('class',"itemhatao")
+      itemhatao.innerHTML = 'Done'
+      addTaskListItem.appendChild(itemhatao);
 
-      TaskListpCancel.addEventListener("click", function () {
+      itemhatao.addEventListener('click',function(){
+        // let text=input2.value;
+        // let result = text.strike();
+        // input2.value.innerHTML= result;
         addTaskListItem.remove();
-      });
-      innerDiv.appendChild(addTaskListItem);
+      })
+      itemlist
+      .appendChild(addTaskListItem);
       popup2Div.remove();
       popup2Blur.remove();
-    });
-  });
+    })
+    
+});
 
-  backButton.addEventListener("click", () => {
-    showCardBack();
-  });
+cardtitle.addEventListener("click", () => {
+  showCard.classList.remove("hide");
+  newcard.classList.add("cardBody2");
+  newcard.classList.remove("card");
+  showCard.appendChild(newcard);
+  
+});
 
-  function showCardBack() {
-    showCard.classList.add("hide");
-    cardBody.classList.add("cardBody");
-    cardBody.classList.remove("cardBody2");
-    cardContainer.appendChild(cardBody);
-  }
+backButton.addEventListener("click", () => {
+  showCardBack();
+  
+});
 
-  showCardAdd.addEventListener('click',()=>{
-    showCardAddMain()
-  })
+function showCardBack() {
+  showCard.classList.add("hide");
+  newcard.classList.add("card");
+  newcard.classList.remove("cardBody2");
+  cardContainer2.appendChild(newcard);
+  
+}
 
-  function showCardAddMain(){
-    blur.classList.remove("hide");
-    popup1.classList.remove("hide");
-    popup1.classList.add("show");
+showCardAdd.addEventListener('click',()=>{
+  showCardAddMain()
+})
 
-    showCard.classList.add("hide");
-    cardBody.classList.add("cardBody");
-    cardBody.classList.remove("cardBody2");
-    cardContainer.appendChild(cardBody);
-  }
+function showCardAddMain(){
+  blur.classList.remove("hide");
+  addtaskpopup.classList.remove("hide");
+  addtaskpopup.classList.add("show");
+
+  showCard.classList.add("hide");
+  newcard.classList.add("card");
+  newcard.classList.remove("cardBody2");
+  cardContainer2.appendChild(newcard);
+}
 
 }
 
-function newTaskClose() {
-  var blur = document.getElementById("$blurBackground");
-  blur.classList.add("hide");
+  function newTaskClose() {
+    var blur = document.getElementById("$blurBackground");
+    blur.classList.add("hide");
+  
+    var addtaskpopup = document.getElementById("popup");
+    addtaskpopup.classList.remove("show");
+    addtaskpopup.classList.add("hide");
+  }
 
-  var popup1 = document.getElementById("popup");
-  popup1.classList.remove("show");
-  popup1.classList.add("hide");
-}
+  
+// closing of second popupbox
+// let closebutton = document.getElementById("closebutton2");
+//  function hideAdditem() {
+//   additempopup.classList.add("hide");
+// }
+
