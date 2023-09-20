@@ -625,6 +625,8 @@ html {
     }
   
     .cardContainer {
+      display: flex;
+      flex-direction: column;
       justify-content: center;
       margin-top: 4vh;
     }
