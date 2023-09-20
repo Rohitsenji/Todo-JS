@@ -191,7 +191,7 @@ html {
 
 .cardBody{
   min-width: 31%;
-  min-height: 40vw;
+  height: 10vh;
   text-align: center;
   box-shadow: 0px 10px 20px rgb(0, 0, 0);
   border-radius: 10px;
@@ -200,7 +200,7 @@ html {
 
 .cardBody2{
   position: fixed;
-  top: 25vh;
+  top: 16vh;
   left: 28vw;
   min-width: 45%;
   min-height: 40vw;
@@ -210,11 +210,7 @@ html {
   background-color: var(--background);
 }
 
-/* .cardBody:hover{
-  scale: 1.05;
-  transform: translate(0px,-20px);
-  box-shadow: 0px 15px 30px rgb(0, 0, 0);
-} */
+
 
 .cardTitle {
   cursor: pointer;
@@ -418,7 +414,7 @@ html {
 
 .showcardInnerDiv{
   position: absolute;
-  top: 15vh; 
+  top: 10vh; 
  color: white;
  display: flex;
  width: 100vw;
@@ -430,6 +426,9 @@ html {
 .backImg{
   width: 50px;
 }
+
+
+
 /* responsive */
 
 @media screen and (max-width: 1100px) {
